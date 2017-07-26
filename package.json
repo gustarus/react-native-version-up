@@ -1,0 +1,21 @@
+{
+  "name": "react-native-version-up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pavel Kondratenko",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "2.0.1",
+    "child_process": "1.0.2",
+    "fs": "0.0.1-security",
+    "readline-sync": "1.4.7",
+    "yargs": "8.0.2"
+  },
+  "devDependencies": {
+    "yarn": "0.21.3"
+  }
+}
