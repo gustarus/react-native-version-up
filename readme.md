@@ -9,6 +9,44 @@ With this script you can:
 - Make a git commit with version changes.
 - Make a git tag with new version.
 
+## Example
+```bash
+> yarn run version:up -- --patch
+yarn run v0.27.5
+warning package.json: No license field
+$ node ./node_modules/react-native-version-up/index.js "--patch"
+
+I'm going to increase the version in:
+  - package.json (./package.json);
+  - ios project (./ios/happinesstracker/Info.plist);
+  - android project (./android/app/build.gradle).
+
+The version will be changed:
+  - from: 0.2.2 (9);
+  - to:   0.2.3 (10).
+
+Use "0.2.3" as the next version? [y/n] y
+
+Updating versions
+  Updating version in package.json...
+    Version in package.json changed.
+  Updating version in xcode project...
+    Version and build number in ios project (plist file) changed.
+  Updating version in android project...
+    Version and build number in android project (gradle file) changed.
+
+I'm ready to cooperate with the git!
+  I want to make a commit with message:
+    "release 0.2.3: increase versions and build numbers"
+  I want to add a tag:
+    "v0.2.3" -m "release 0.2.3: increase versions and build numbers"
+  Do you allow me to do this? [y/n] y
+  Commit with files added. Run "git push".
+
+Done!
+Done in 3.12s.
+```
+
 ## Installation
 ```
 yarn add react-native-version-up
@@ -71,41 +109,3 @@ yarn run version:up -- --flag value
 | **`--pathToPackage './path'`** | `string` | `./package.json` | Path to `package.json` file in your project. |
 | **`--pathToPlist './path'`** | `string` | `./ios/${package.name}/Info.plist` | Path to `Info.plist` file (ios project). |
 | **`--pathToGradle './path'`** | `string` | `./android/app/build.gradle` | Path to `build.gradle` file (android project). |
-
-## Example
-```bash
-> yarn run version:up -- --patch
-yarn run v0.27.5
-warning package.json: No license field
-$ node ./node_modules/react-native-version-up/index.js "--patch"
-
-I'm going to increase the version in:
-  - package.json (./package.json);
-  - ios project (./ios/happinesstracker/Info.plist);
-  - android project (./android/app/build.gradle).
-
-The version will be changed:
-  - from: 0.2.2 (9);
-  - to:   0.2.3 (10).
-
-Use "0.2.3" as the next version? [y/n] y
-
-Updating versions
-  Updating version in package.json...
-    Version in package.json changed.
-  Updating version in xcode project...
-    Version and build number in ios project (plist file) changed.
-  Updating version in android project...
-    Version and build number in android project (gradle file) changed.
-
-I'm ready to cooperate with the git!
-  I want to make a commit with message:
-    "release 0.2.3: increase versions and build numbers"
-  I want to add a tag:
-    "v0.2.3" -m "release 0.2.3: increase versions and build numbers"
-  Do you allow me to do this? [y/n] y
-  Commit with files added. Run "git push".
-
-Done!
-Done in 3.12s.
-```
