@@ -3,7 +3,6 @@
 const fs = require('fs');
 const argv = require('yargs').argv;
 const readlineSync = require('readline-sync');
-const chalk = require('chalk');
 const exec = require('child_process').exec;
 
 const helpers = require('./lib/helpers');
@@ -14,7 +13,7 @@ const pathToRoot = process.cwd();
 const pathToPackage = argv.pathToPackage || `${pathToRoot}/package.json`;
 const info = helpers.getPackageInfo(pathToPackage);
 
-const pathToPlist = argv.pathToPlist || `${pathToRoot}./ios/${info.name}/Info.plist`;
+const pathToPlist = argv.pathToPlist || `${pathToRoot}/ios/${info.name}/Info.plist`;
 const pathToGradle = argv.pathToGradle || `${pathToRoot}/android/app/build.gradle`;
 
 
@@ -41,7 +40,7 @@ log.notice(`- from: ${versionCurrent} (${buildCurrent});`, 1);
 log.notice(`- to:   ${version} (${build}).`, 1);
 
 if (version === versionCurrent) {
-  log.warning('Nothing to change. Canceled.');
+  log.warning('\nNothing to change in the version. Canceled.');
   process.exit();
 }
 
