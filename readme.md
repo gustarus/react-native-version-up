@@ -12,8 +12,6 @@ With this script you can:
 ## Example
 ```bash
 > yarn run version:up -- --patch
-yarn run v0.27.5
-warning package.json: No license field
 $ node ./node_modules/react-native-version-up/index.js "--patch"
 
 I'm going to increase the version in:
@@ -44,7 +42,6 @@ I'm ready to cooperate with the git!
   Commit with files added. Run "git push".
 
 Done!
-Done in 3.12s.
 ```
 
 ## Installation
