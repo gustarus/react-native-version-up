@@ -1,7 +1,7 @@
 # React native version upper
 Increase `major`, `minor` or `patch` part of the version and build number in your app in package.json and in ios and android projects with one command.
 ```
-node ./node_modules/react-native-version-up/index.js --major --minor --patch
+node ./node_modules/react-native-version-up/index.js --patch -m 'commit message'
 ```
 
 With this script you can:
