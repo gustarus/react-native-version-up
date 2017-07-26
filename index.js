@@ -20,8 +20,8 @@ const pathToGradle = argv.pathToGradle || `${pathToRoot}/android/app/build.gradl
 const versionCurrent = info.version;
 const versions = helpers.versions(versionCurrent);
 let major = helpers.version(versions[0], argv.major);
-let minor = helpers.version(versions[1], argv.minor);
-let patch = helpers.version(versions[2], argv.patch);
+let minor = helpers.version(versions[1], argv.minor, argv.major);
+let patch = helpers.version(versions[2], argv.patch, argv.major || argv.minor);
 const version = `${major}.${minor}.${patch}`;
 
 // getting next build number
