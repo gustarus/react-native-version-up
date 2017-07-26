@@ -74,15 +74,15 @@ yarn run version:up -- --flag value
 
 ## Example
 ```bash
-> yarn run version:up -- --patch                                                                        master [56b6724] (!)
+> yarn run version:up -- --patch
 yarn run v0.27.5
 warning package.json: No license field
 $ node ./node_modules/react-native-version-up/index.js "--patch"
 
 I'm going to increase the version in:
-  - package.json (/Users/pkondratenko/projects/happinesstracker/application/package.json);
-  - ios project (/Users/pkondratenko/projects/happinesstracker/application/ios/happinesstracker/Info.plist);
-  - android project (/Users/pkondratenko/projects/happinesstracker/application/android/app/build.gradle).
+  - package.json (./package.json);
+  - ios project (./ios/happinesstracker/Info.plist);
+  - android project (./android/app/build.gradle).
 
 The version will be changed:
   - from: 0.2.2 (9);
