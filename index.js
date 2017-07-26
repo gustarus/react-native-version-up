@@ -3,7 +3,6 @@
 const fs = require('fs');
 const argv = require('yargs').argv;
 const readlineSync = require('readline-sync');
-const exec = require('child_process').exec;
 
 const helpers = require('./lib/helpers');
 const log = require('./lib/log');
