@@ -56,6 +56,21 @@ Or via npm:
 ```bash
 npm run version:up -- --major
 ```
+## Options
+You can pass option name and value with following syntax (remember to put `--` before options):
+```
+yarn run version:up -- --flag value
+```
+
+| **Option** | **Default value** | **Description** |
+|----------------------------------------|-----------------------------------------------------------|--------------------------------------------------|
+| **`--major`** | 0 | Increase `major` version:,**0**.0.0 -> **1**.0.0 |
+| **`--minor`** | 0 | Increase `minor` version:,0.**0**.0 -> 0.**1**.0 |
+| **`--patch`** | 0 | Increase `patch` version:,0.0.**0** -> 0.0.**1** |
+| **`--message` or `-m`** | "release ${version}: increase versions and build numbers" | Custom commit message. |
+| **`--pathToPackage './path/to/file'`** | `./package.json` | Path to `package.json` file in your project. |
+| **`--pathToPlist './path/to/file'`** | `./ios/${package.name}/Info.plist` | Path to `Info.plist` file (ios project). |
+| **`--pathToGradle './path/to/file'`** | `./android/app/build.gradle` | Path to `build.gradle` file (android project). |
 
 ## Example
 ```bash

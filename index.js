@@ -28,6 +28,9 @@ const version = `${major}.${minor}.${patch}`;
 const buildCurrent = helpers.getBuildNumberFromPlist(pathToPlist);
 const build = buildCurrent + 1;
 
+// getting commit message
+const message = argv.m || argv.message || `release ${version}: increase versions and build numbers`;
+
 
 log.info('\nI\'m going to increase the version in:');
 log.info(`- package.json (${pathToPackage});`, 1);
@@ -77,13 +80,11 @@ const update = chain.then(() => {
 });
 
 const commit = update.then(() => {
-  const message = `release ${version}: increase versions and build numbers`;
-
   log.notice(`\nI'm ready to cooperate with the git!`);
   log.info('I want to make a commit with message:', 1);
   log.info(`"${message}"`, 2);
   log.info(`I want to add a tag:`, 1);
-  log.info(`"v${version}" -m "${message}"`, 2);
+  log.info(`"v${version}"`, 2);
 
   const question = log.info(`Do you allow me to do this? [y/n] `, 1, true);
   const answer = readlineSync.question(question).toLowerCase();
