@@ -84,17 +84,17 @@ git commit -m 'version:up command added'
 
 **4. Increase version when needed**
 ```bash
-yarn run version:up -- --major
+yarn version:up --major
 ```
 
 Or via npm:
 ```bash
-npm run version:up -- --major
+npm version:up --major
 ```
 ## Options
-You can pass option name and value with following syntax (remember to put `--` before options):
+You can pass option name and value with following syntax (remember to put `--` before options if you are using npm, with yarn this is not needed):
 ```
-yarn run version:up -- --flag value
+yarn version:up --flag value
 ```
 
 | **Option** | **Type** | **Default value** | **Description** |
