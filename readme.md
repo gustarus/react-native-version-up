@@ -89,7 +89,7 @@ yarn version:up --major
 
 Or via npm:
 ```bash
-npm version:up --major
+npm run version:up -- --major
 ```
 ## Options
 You can pass option name and value with following syntax (remember to put `--` before options if you are using npm, with yarn this is not needed):
