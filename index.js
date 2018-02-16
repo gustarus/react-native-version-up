@@ -29,14 +29,8 @@ const buildCurrent = helpers.getBuildNumberFromPlist(pathToPlist);
 const build = buildCurrent + 1;
 
 // getting commit message
-let message
-if(argv.m || argv.message) {
-  message = argv.m || argv.message
-  message = message.replace('${version}', version)
-} else {
-  message = `release ${version}: increase versions and build numbers`;
-}
-
+const messageTemplate = argv.m || argv.message || 'release ${version}: increase versions and build numbers';
+const message = messageTemplate.replace('${version}', version);
 
 log.info('\nI\'m going to increase the version in:');
 log.info(`- package.json (${pathToPackage});`, 1);
