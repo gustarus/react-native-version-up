@@ -1,5 +1,5 @@
 **Please, create pull request to the project if you improve something!**
-**It will help us to create hight-quality package.**
+**It will help us to create hight-quality package together.**
 
 # React native version upper
 Increase `major`, `minor` or `patch` part of the version and build number in your app in package.json and in ios and android projects with one command.
