@@ -1,4 +1,4 @@
-**Please, do create pull requests to the project if you improve something!**
+**Please, create pull request to the project if you improve something!**
 **It will help us to create hight-quality package.**
 
 # React native version upper
