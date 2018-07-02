@@ -14,6 +14,8 @@ const info = helpers.getPackageInfo(pathToPackage);
 
 const pathToPlist = argv.pathToPlist || `${pathToRoot}/ios/${info.name}/Info.plist`;
 const pathToGradle = argv.pathToGradle || `${pathToRoot}/android/app/build.gradle`;
+// handle case of several plist files
+const pathsToPlists = Array.isArray(pathToPlist) ? pathToPlist : [pathToPlist];
 
 
 // getting next version
@@ -25,7 +27,7 @@ let patch = helpers.version(versions[2], argv.patch, argv.major || argv.minor);
 const version = `${major}.${minor}.${patch}`;
 
 // getting next build number
-const buildCurrent = helpers.getBuildNumberFromPlist(pathToPlist);
+const buildCurrent = helpers.getBuildNumberFromPlist(pathsToPlists[0]);
 const build = buildCurrent + 1;
 
 // getting commit message
@@ -34,7 +36,7 @@ const message = messageTemplate.replace('${version}', version);
 
 log.info('\nI\'m going to increase the version in:');
 log.info(`- package.json (${pathToPackage});`, 1);
-log.info(`- ios project (${pathToPlist});`, 1);
+log.info(`- ios project (${pathsToPlists.join(', ')});`, 1);
 log.info(`- android project (${pathToGradle}).`, 1);
 
 log.notice(`\nThe version will be changed:`);
@@ -70,7 +72,9 @@ const update = chain.then(() => {
 }).then(() => {
   log.info('Updating version in xcode project...', 1);
 
-  helpers.changeVersionAndBuildInPlist(pathToPlist, version, build);
+  pathsToPlists.forEach(pathToPlist => {
+    helpers.changeVersionAndBuildInPlist(pathToPlist, version, build);
+  });
   log.success(`Version and build number in ios project (plist file) changed.`, 2);
 }).then(() => {
   log.info('Updating version in android project...', 1);
@@ -91,7 +95,7 @@ const commit = update.then(() => {
   if (answer === 'y') {
     return helpers.commitVersionIncrease(version, message, [
       pathToPackage,
-      pathToPlist,
+      ...pathsToPlists,
       pathToGradle
     ]).then(() => {
       log.success(`Commit with files added. Run "git push".`, 1);
