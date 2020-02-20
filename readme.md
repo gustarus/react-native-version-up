@@ -63,7 +63,7 @@ npm install react-native-version-up --save
 {
   "name": "your-project-name",
   "scripts": {
-    "version:up": "node ./node_modules/react-native-version-up/index.js"
+    "version:up": index.ts
   }
 }
 ```
@@ -74,7 +74,7 @@ npm install react-native-version-up --save
   "name": "your-project-name",
   "version": "1.0.0",
   "scripts": {
-    "version:up": "node ./node_modules/react-native-version-up/index.js"
+    "version:up": index.ts
   }
 }
 ```

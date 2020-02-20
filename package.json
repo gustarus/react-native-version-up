@@ -2,13 +2,21 @@
   "name": "react-native-version-up",
   "version": "1.0.9",
   "description": "Increase version and build number in your react native app for package.json and both platforms (ios && android) with one command",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "./node_modules/.bin/tsc -w",
+    "build": "rm -rf ./dist && ./node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gustarus/react-native-version-up.git"
+    "url": "git+ssh://git@github.com:gustarus/react-native-version-up.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gustarus/react-native-version-up/issues"
+  },
+  "main": "./dist/index.js",
+  "homepage": "https://github.com/hustarus/react-native-version-up",
+  "bin": {
+    "react-native-version-up": "./dist/index.js"
   },
   "keywords": [
     "react native version",
@@ -16,14 +24,20 @@
   ],
   "author": "Pavel Kondratenko",
   "license": "ISC",
-  "dependencies": {
-    "chalk": "2.0.1",
-    "child_process": "1.0.2",
-    "fs": "0.0.1-security",
-    "readline-sync": "1.4.7",
-    "yargs": "8.0.2"
-  },
   "devDependencies": {
-    "yarn": "1.22.0"
+    "@types/commander": "2.12.2",
+    "@types/fs-extra": "8.0.1",
+    "@types/inquirer": "6.5.0",
+    "@types/node": "13.7.1",
+    "@types/yargs": "15.0.3",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "child_process": "1.0.2",
+    "colors": "1.4.0",
+    "commander": "4.1.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "8.1.0",
+    "moment": "^2.24.0"
   }
 }
