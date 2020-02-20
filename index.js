@@ -27,7 +27,8 @@ let patch = helpers.version(versions[2], argv.patch, argv.major || argv.minor);
 const version = `${major}.${minor}.${patch}`;
 
 // getting next build number
-const buildCurrent = helpers.getBuildNumberFromPlist(pathsToPlists[0]);
+//const buildCurrent = helpers.getBuildNumberFromPlist(pathsToPlists[0]);
+const buildCurrent = helpers.getBuildNumberFromGradle(pathToGradle);
 const build = buildCurrent + 1;
 
 // getting commit message
