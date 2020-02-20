@@ -24,6 +24,6 @@
     "yargs": "8.0.2"
   },
   "devDependencies": {
-    "yarn": "0.21.3"
+    "yarn": "1.22.0"
   }
 }
