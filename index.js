@@ -16,7 +16,7 @@ const pathToPlist = argv.pathToPlist || `${pathToRoot}/ios/${info.name}/Info.pli
 const pathToGradle = argv.pathToGradle || `${pathToRoot}/android/app/build.gradle`;
 // handle case of several plist files
 const pathsToPlists = Array.isArray(pathToPlist) ? pathToPlist : [pathToPlist];
-
+const interactive = !argv.nonInteractive
 
 // getting next version
 const versionCurrent = info.version;
@@ -56,9 +56,15 @@ const chain = new Promise((resolve, reject) => {
     log.warning(`I can\'t understand format of the version "${versionCurrent}".`);
   }
 
-  const question = log.info(`Use "${version}" as the next version? [y/n] `, 0, true);
-  const answer = readlineSync.question(question).toLowerCase();
-  answer === 'y' ? resolve() : reject('Process canceled.');
+  let answer
+  if (interactive) {
+    const question = log.info(`Use "${version}" as the next version? [y/n] `, 0, true);
+    answer = readlineSync.question(question).toLowerCase();
+  }
+
+  (!interactive || (answer === 'y'))
+    ? resolve()
+    : reject()
 });
 
 
@@ -90,9 +96,13 @@ const commit = update.then(() => {
   log.info(`I want to add a tag:`, 1);
   log.info(`"v${version}"`, 2);
 
-  const question = log.info(`Do you allow me to do this? [y/n] `, 1, true);
-  const answer = readlineSync.question(question).toLowerCase();
-  if (answer === 'y') {
+  let answer
+  if (interactive) {
+    const question = log.info(`Do you allow me to do this? [y/n] `, 1, true);
+    answer = readlineSync.question(question).toLowerCase();
+  }
+
+  if (!interactive || (answer === 'y')) {
     return helpers.commitVersionIncrease(version, message, [
       pathToPackage,
       ...pathsToPlists,

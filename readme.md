@@ -109,3 +109,4 @@ yarn version:up --flag value
 | **`--pathToPackage './path'`** | `string` | `./package.json` | Path to `package.json` file in your project. |
 | **`--pathToPlist './path'`** | `string` | `./ios/${package.name}/Info.plist` | Path to `Info.plist` file (ios project). |
 | **`--pathToGradle './path'`** | `string` | `./android/app/build.gradle` | Path to `build.gradle` file (android project). |
+| **`--non-interactive`** | `flag` | | Skip prompts |
